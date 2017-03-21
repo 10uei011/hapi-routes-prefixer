@@ -7,20 +7,18 @@ exports.register.attributes = {
 };
 
 function register (server, options, next) {
-    server.decorate('server', 'routePrefix', routePrefix);
+    server.decorate('server', 'routePrefix', function (prefix) {
+        var originalRoute = this.route;
+
+        return function (options) {
+            options = [].concat(options);
+
+            for (var i = 0; i < options.length; ++i) {
+                options[i].path = prefix + options[i].path;
+            }
+
+            return originalRoute.call(server, options);
+        };
+    });
     next();
 }
-
-function routePrefix (prefix) {
-    var originalRoute = this.route;
-
-    return function (options) {
-        options = [].concat(options);
-
-        for (var i = 0; i < options.length; ++i) {
-            options[i].path = prefix + options[i].path;
-        }
-
-        return originalRoute.call(server, options);
-    };
-};

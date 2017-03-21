@@ -1,0 +1,28 @@
+{
+  "name": "hapi-routes-prefixer",
+  "version": "1.0.0",
+  "description": "A simple Hapi plugin for prefixing routes",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/10uei011/hapi-routes-prefixer.git"
+  },
+  "keywords": [
+    "hapi",
+    "hapi.js",
+    "node",
+    "node.js",
+    "routes",
+    "plugin",
+    "route-prefix"
+  ],
+  "author": "dipesh",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/10uei011/hapi-routes-prefixer/issues"
+  },
+  "homepage": "https://github.com/10uei011/hapi-routes-prefixer#readme"
+}

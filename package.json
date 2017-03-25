@@ -4,7 +4,7 @@
   "description": "A simple Hapi plugin for prefixing routes",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "standard"
   },
   "repository": {
     "type": "git",
@@ -24,5 +24,8 @@
   "bugs": {
     "url": "https://github.com/10uei011/hapi-routes-prefixer/issues"
   },
-  "homepage": "https://github.com/10uei011/hapi-routes-prefixer#readme"
+  "homepage": "https://github.com/10uei011/hapi-routes-prefixer#readme",
+  "devDependencies": {
+    "standard": "^9.0.2"
+  }
 }

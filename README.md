@@ -22,30 +22,25 @@ var Hapi = require('hapi');
 var server = new Hapi.Server();
 var prefixer = require('hapi-routes-prefixer');
 
-server.connection({ port: 3000, host: localhost});
+server.connection({
+	port: 3000,
+	host: localhost
+});
 
 server.register([
 	{
 		register: prefixer
-	}, 
-	{
-		register: 'some other plugin'
 	},
-	function (err) {
-		if (err) {
-			console.log('Failed to load plugin:', err);
-		}
-
-		server.start(function (err) {
-	    if (err) {
-	      throw err;
-	    }
-	    
-	    console.log(Server running at: ', server.info.uri);
-	  });
+	{
+		register: 'other plugins'
+	}, function (err) {
+		if (err) console.log('Failed to load plugins ',err);
+		console.log('Server running at:', server.info.uri);
 	}
 ]);
 ```
+
+
 
 After registering the plugin, use it in your routes like this.
 

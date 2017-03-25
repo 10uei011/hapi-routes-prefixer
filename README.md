@@ -18,11 +18,11 @@ npm install --save hapi-routes-prefixer
 After installing register the module as a plugin.
 
 ```js
-var Hapi = require('hapi')
-var server = new Hapi.Server()
-var prefixer = require('hapi-routes-prefixer')
+var Hapi = require('hapi');
+var server = new Hapi.Server();
+var prefixer = require('hapi-routes-prefixer');
 
-server.connection({ port: 3000, host: localhost})
+server.connection({ port: 3000, host: localhost});
 
 server.register([
 	{
@@ -33,18 +33,18 @@ server.register([
 	},
 	function (err) {
 		if (err) {
-			console.log('Failed to load plugin:', err)
+			console.log('Failed to load plugin:', err);
 		}
 
 		server.start(function (err) {
 	    if (err) {
-	      throw err
+	      throw err;
 	    }
-	    	console.log(Server running at: ',server.info.uri)
-	  })
+	    
+	    console.log(Server running at: ', server.info.uri);
+	  });
 	}
-])
-
+]);
 ```
 
 After registering the plugin, use it in your routes like this.
@@ -52,7 +52,7 @@ After registering the plugin, use it in your routes like this.
 ```js
 exports.register = function (server, option, next) {
 
-  var route = server.routePrefix('/api')
+  var route = server.routePrefix('/api');
 
   route([
     {
@@ -65,18 +65,18 @@ exports.register = function (server, option, next) {
       method: 'POST',
       path: '/users',
       handler: function (request, reply) {
-      	reply('created user')
+      	reply('created user');
       }
     },
   ]);
 
-  next()
+  next();
 };
 
 exports.register.attributes = {
   name: 'api.user',
   version: '1.0.0'
-}
+};
 ```
 The above routes can be accessed at 'domain.com/api/users' now.
 

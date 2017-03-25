@@ -25,24 +25,25 @@ var prefixer = require('hapi-routes-prefixer')
 server.connection({ port: 3000, host: localhost})
 
 server.register([
-{
-	register: prefixer
-}, 
-{
-	register: 'some other plugin'
-},
-function (err) {
-	if (err) {
-		console.log('Failed to load plugin:', err)
-	}
+	{
+		register: prefixer
+	}, 
+	{
+		register: 'some other plugin'
+	},
+	function (err) {
+		if (err) {
+			console.log('Failed to load plugin:', err)
+		}
 
-	server.start(function (err) {
-    if (err) {
-      throw err
-    }
-    	console.log(Server running at: ', server.info.uri)
-    })
-}])
+		server.start(function (err) {
+	    if (err) {
+	      throw err
+	    }
+	    	console.log(Server running at: ',server.info.uri)
+	  })
+	}
+])
 
 ```
 
